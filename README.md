@@ -1,1 +1,1 @@
-# [skilljs](https://skilljs.com/)
+# [skilljs.com](https://skilljs.com/)
