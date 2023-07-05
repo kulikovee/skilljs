@@ -1,4 +1,4 @@
 # [skilljs.com](https://skilljs.com/)
 
 
-docker build . -t myubuntu
+> docker build . -t myubuntu
