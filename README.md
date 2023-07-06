@@ -1,8 +1,19 @@
 # [skilljs.com](https://skilljs.com/)
 
-Initial Dockerfile is based on [the artice](https://octopus.com/blog/using-ubuntu-docker-image)
+# Prerequirements
 
-Build the image with the command:
-> docker build . -t myubuntu
+* npm version 9.7.2<br>
+* node version 20.4.0<br>
 
-#TODO: Update Dockerfile to include all the pre-install commands
+
+# Start the project
+
+* Terminal commands:
+  * npm i
+  * npm run dev
+* Open browser:
+  * http://localhost:3000/
+
+
+
+
