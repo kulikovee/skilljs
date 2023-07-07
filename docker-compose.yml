@@ -1,0 +1,43 @@
+version: '3.8'
+
+networks:
+  default:
+
+services:
+  mariadb-adminer:
+    image: adminer
+    restart: always
+    ports:
+      - 8080:8080
+
+  mariadb-docker-container:
+    image: mariadb
+    depends_on:
+      - mariadb-adminer
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: skilljs
+      MYSQL_USER: admin
+      MYSQL_PASSWORD: admin
+    ports:
+      - "3306:3306"
+
+  nextjs-docker-container:
+    container_name: nextjs-docker-container
+    depends_on:
+     - mariadb-docker-container
+    build:
+      context: ./
+      dockerfile: Dockerfile
+    restart: unless-stopped
+    ports:
+      - "3000:3000"
+    stdin_open: true
+    tty: true
+    volumes:
+      - ./
+    networks:
+      - default
+
+volumes:
+  mysql-volume:

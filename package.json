@@ -6,7 +6,9 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "docker": "sudo docker-compose up nextjs-docker-container",
+    "docker-clean": "sudo docker-compose down -v"
   },
   "dependencies": {
     "@types/node": "20.4.0",
