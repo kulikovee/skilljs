@@ -38,6 +38,3 @@ services:
       - ./
     networks:
       - default
-
-volumes:
-  mysql-volume:

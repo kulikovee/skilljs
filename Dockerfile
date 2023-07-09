@@ -1,6 +1,6 @@
 FROM node:20.3.1-bullseye
-WORKDIR /src
-COPY package.json package-lock.json ./
+WORKDIR /
+COPY package*.json ./
 RUN npm i
 COPY . .
 EXPOSE 3000
