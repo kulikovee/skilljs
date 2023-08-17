@@ -7,8 +7,12 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "docker": "docker-compose up nextjs-docker-container",
-    "docker-clean": "docker-compose down -v"
+    "docker": "npm run docker-clean && npm run docker-build && npm run docker-up",
+    "docker-up": "docker-compose up nextjs-docker-container",
+    "docker-build": "docker-compose build --no-cache",
+    "docker-clean": "docker-compose down -v",
+    "docker-remove-containers": "docker rm -f $(docker ps -a -q)",
+    "docker-remove-volumes": "docker volume rm $(docker volume ls -q)"
   },
   "dependencies": {
     "@types/node": "20.4.0",
