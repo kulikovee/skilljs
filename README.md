@@ -2,7 +2,7 @@
 
 # Easy Reading
 
-* https://nextjs.org/docs/getting-started/installation
+* https://react.dev/
 
 # Prerequirements
 

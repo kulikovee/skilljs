@@ -21,20 +21,3 @@ services:
       MYSQL_PASSWORD: admin
     ports:
       - 3306:3306
-
-  nextjs-docker-container:
-    container_name: skilljs_nextjs
-    depends_on:
-     - mariadb-docker-container
-    build:
-      context: ./
-      dockerfile: Dockerfile
-    restart: unless-stopped
-    ports:
-      - 3000:3000
-    volumes:
-      - .:/app
-    stdin_open: true
-    tty: true
-    networks:
-      - default
