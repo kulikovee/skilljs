@@ -7,7 +7,7 @@ const app: Express = express();
 const port = 3001;
 
 app.get('/', (req: Request, res: Response) => {
-    res.send('Express + TypeScript Server 2');
+    res.send('Express + TypeScript Server 3');
 });
 
 app.listen(port, () => {
