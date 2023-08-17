@@ -27,26 +27,6 @@ module.exports = {
                 use: ["file-loader"]
             },
             {
-                test: /\.m?js$/,
-                exclude: /node_modules/,
-                use: {
-                    loader: "babel-loader",
-                    options: {
-                        presets: ['@babel/preset-env']
-                    }
-                }
-            },
-            {
-                test: /\.jsx$/,
-                exclude: /node_modules/,
-                use: {
-                    loader: "babel-loader",
-                    options: {
-                        presets: ['@babel/preset-react']
-                    }
-                }
-            },
-            {
                 test: /\.tsx?$/,
                 exclude: /node_modules/,
                 loader: 'ts-loader',
@@ -54,6 +34,6 @@ module.exports = {
         ]
     },
     resolve: {
-        extensions: ['.js', '.ts', '.jsx', '.tsx'],
+        extensions: ['.js', '.ts', '.tsx'],
     },
 }
