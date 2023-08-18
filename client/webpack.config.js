@@ -14,7 +14,7 @@ module.exports = {
         new CleanWebpackPlugin()
     ],
     devServer: {
-        port: 3001
+        port: 8080
     },
     module: {
         rules: [
