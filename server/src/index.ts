@@ -1,6 +1,6 @@
 import express, { Express, Request, Response } from 'express';
 
-import { ArticleFactory } from './mocks';
+import { MockArticleFactory } from './mocks';
 
 const app: Express = express();
 const port = 3001;
@@ -18,7 +18,7 @@ app.get('/articles', (req: Request, res: Response) => {
     res.send({
         result: new Array(20)
             .fill(null)
-            .map((_, idx) => ArticleFactory(idx + 1)),
+            .map((_, idx) => MockArticleFactory(idx + 1)),
     });
 });
 
@@ -33,7 +33,7 @@ app.get('/articles/:id', (req: Request, res: Response) => {
         return res.status(error).send({ error });
     }
 
-    res.send({ result: ArticleFactory(id) });
+    res.send({ result: MockArticleFactory(id) });
 });
 
 app.listen(port, () => {

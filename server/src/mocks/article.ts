@@ -20,7 +20,7 @@ const MockArticle = {
     "likes": 3
 };
 
-export const ArticleFactory = (id: number) => ({
+export const MockArticleFactory = (id: number) => ({
     ...MockArticle,
     id,
     title: `What is Linting #${id}`,
