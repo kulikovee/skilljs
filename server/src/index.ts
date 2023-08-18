@@ -1,23 +1,39 @@
 import express, { Express, Request, Response } from 'express';
-import dotenv from 'dotenv';
 
-import { MockArticle, MockArticles } from './mocks';
-
-dotenv.config();
+import { ArticleFactory } from './mocks';
 
 const app: Express = express();
 const port = 3001;
 
 app.get('/', (req: Request, res: Response) => {
-    res.send({ apiVersion: "1.0.0" });
+    res.send({
+        result: {
+            apiVersion: "1.0.0",
+            availableRoutes: ["/", "/articles", "/articles/:id"],
+        },
+    });
 });
 
 app.get('/articles', (req: Request, res: Response) => {
-    res.send(MockArticles);
+    res.send({
+        result: new Array(20)
+            .fill(null)
+            .map((_, idx) => ArticleFactory(idx + 1)),
+    });
 });
 
-app.get('/articles/1', (req: Request, res: Response) => {
-    res.send(MockArticle);
+app.get('/articles/:id', (req: Request, res: Response) => {
+    const id = Number(req.params.id);
+    const error =
+        (Number.isNaN(id) && 400)
+        || ((id < 1 || id > 20) && 404)
+        || null;
+
+    if (error) {
+        return res.status(error).send({ error });
+    }
+
+    res.send({ result: ArticleFactory(id) });
 });
 
 app.listen(port, () => {
