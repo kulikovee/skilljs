@@ -8,7 +8,7 @@ services:
     image: adminer
     restart: always
     ports:
-      - 8080:8080
+      - 8082:8080
 
   mariadb-docker-container:
     image: mariadb
@@ -22,7 +22,7 @@ services:
     ports:
       - 3306:3306
 
-  app-docker-container:
+  server-docker-container:
     container_name: skilljs_server
     depends_on:
       - mariadb-docker-container
@@ -31,9 +31,24 @@ services:
       dockerfile: ./server/Dockerfile
     restart: unless-stopped
     ports:
-      - 3001:3001
+      - 8081:8081
     volumes:
       - ./server/:/app
+    networks:
+      - default
+
+  client-docker-container:
+    container_name: skilljs_client
+    depends_on:
+      - server-docker-container
+    build:
+      context: ./
+      dockerfile: ./client/Dockerfile
+    restart: unless-stopped
+    ports:
+      - 8080:8080
+    volumes:
+      - ./client/:/app-client
     stdin_open: true
     tty: true
     networks:

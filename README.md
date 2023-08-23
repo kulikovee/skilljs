@@ -13,10 +13,12 @@
 
 * Terminal commands:
   * `cd ./{ProjectPath}/skilljs`
-  * `npm i`
-  * `npm run dev`
+  * `npm run docker`
+
 * Open browser:
-  * http://localhost:3000/
+  * [FE] http://localhost:8080/
+  * [BE] http://localhost:8081/
+  * [DB Adminer] http://localhost:8082/
 
 
 
