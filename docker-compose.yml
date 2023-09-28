@@ -14,11 +14,6 @@ services:
     image: mariadb
     depends_on:
       - mariadb-adminer
-    environment:
-      MYSQL_ROOT_PASSWORD: root
-      MYSQL_DATABASE: skilljs
-      MYSQL_USER: admin
-      MYSQL_PASSWORD: admin
     ports:
       - 3306:3306
 

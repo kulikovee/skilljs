@@ -11,8 +11,12 @@ indent_size = 4
 [*.md]
 trim_trailing_whitespace = false
 
-[{*.ats,*.cts,*.mts,*.ts,*.tsx}]
+[{*.ats,*.cts,*.mts,*.ts,*.tsx, *.js, *.jsx}]
 ij_typescript_spaces_within_imports = true
 ij_typescript_spaces_within_object_literal_braces = true
 ij_typescript_spaces_within_object_type_braces = true
 ij_typescript_spaces_within_union_types = true
+ij_javascript_spaces_within_imports = true
+ij_javascript_spaces_within_object_literal_braces = true
+ij_javascript_spaces_within_object_type_braces = true
+ij_javascript_spaces_within_union_types = true

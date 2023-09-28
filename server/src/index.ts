@@ -1,9 +1,39 @@
 import express, { Express, Request, Response } from 'express';
+import MariaDB from 'mariadb';
+import dotenv from 'dotenv';
 
 import { MockArticleFactory } from './mocks';
+import { Article } from "./model";
 
 const app: Express = express();
 const port = 8081;
+
+dotenv.config();
+
+const pool = MariaDB.createPool({
+    host: "127.0.0.1",
+    user: process.env.MYSQL_USER,
+    password: process.env.MYSQL_PASSWORD,
+    connectionLimit: 5
+});
+
+async function getArticles(): Promise<Article[]> {
+    let conn;
+    let result: Article[];
+
+    try {
+        conn = await pool.getConnection();
+        result = await conn.query("SELECT * FROM articles") as Article[];
+    } catch (err) {
+        throw err;
+    }
+
+    if (conn) {
+        conn.end();
+    }
+
+    return result;
+}
 
 app.get('/', (req: Request, res: Response) => {
     res.send({
