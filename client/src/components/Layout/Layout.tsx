@@ -7,13 +7,11 @@ const mockedArticles = [
     {id: 2, title: 'Vitali part of this cool project', text: 'I like it because............', date: '2022-06-29', },
 ]
 
-const Layout = () => {
-    return (
-        <>
-            <Header title="SkillJS" />
-            <ArticleList articles={mockedArticles} />
-        </>
-    );
-};
+const Layout = () => (
+    <>
+        <Header title="SkillJS" />
+        <ArticleList articles={ mockedArticles } />
+    </>
+);
 
 export default Layout;
