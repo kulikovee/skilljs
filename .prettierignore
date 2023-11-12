@@ -1,0 +1,8 @@
+node_modules
+package.json
+package-lock.json
+README.md
+
+client/tsconfig.json
+
+server/tsconfig.json

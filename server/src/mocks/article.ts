@@ -11,19 +11,19 @@ In summary, JavaScript linting is a powerful tool for improving code quality, re
 `;
 
 const MockArticle = {
-    "id": 1,
-    "title": "What is Linting #1",
-    "body": MockArticleBody,
-    "createdAt": "2023-08-17T17:04:03.674Z",
-    "updatedAt": "2023-08-17T17:04:03.674Z",
-    "views": 7,
-    "likes": 3
+  id: 1,
+  title: 'What is Linting #1',
+  body: MockArticleBody,
+  createdAt: '2023-08-17T17:04:03.674Z',
+  updatedAt: '2023-08-17T17:04:03.674Z',
+  views: 7,
+  likes: 3,
 };
 
 export const MockArticleFactory = (id: number) => ({
-    ...MockArticle,
-    id,
-    title: `What is Linting #${id}`,
-    views: (id + 3) * 13,
-    likes: (id + 1) * 3,
+  ...MockArticle,
+  id,
+  title: `What is Linting #${id}`,
+  views: (id + 3) * 13,
+  likes: (id + 1) * 3,
 });

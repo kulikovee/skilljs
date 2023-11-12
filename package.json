@@ -10,5 +10,8 @@
     "docker-remove-volumes": "docker volume rm $(docker volume ls -q)"
   },
   "author": "Eduard Kulikov",
-  "license": "ISC"
+  "license": "ISC",
+  "devDependencies": {
+    "prettier": "^3.0.3"
+  }
 }
